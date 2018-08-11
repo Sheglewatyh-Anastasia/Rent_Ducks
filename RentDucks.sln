@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentDucks", "RentOfDucks\RentDucks.csproj", "{B6C2CA00-18FC-4294-94A1-750EBAFD25B7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D7F4937A-04C2-495D-97AE-21EB7F2D5495} = {D7F4937A-04C2-495D-97AE-21EB7F2D5495}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRentDucks", "WcfRentOfDucks\WcfRentDucks.csproj", "{D7F4937A-04C2-495D-97AE-21EB7F2D5495}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6C2CA00-18FC-4294-94A1-750EBAFD25B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C2CA00-18FC-4294-94A1-750EBAFD25B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C2CA00-18FC-4294-94A1-750EBAFD25B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C2CA00-18FC-4294-94A1-750EBAFD25B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F4937A-04C2-495D-97AE-21EB7F2D5495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F4937A-04C2-495D-97AE-21EB7F2D5495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F4937A-04C2-495D-97AE-21EB7F2D5495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F4937A-04C2-495D-97AE-21EB7F2D5495}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1435ED61-0E0C-46AF-950D-2E0882EF00EE}
+	EndGlobalSection
+EndGlobal

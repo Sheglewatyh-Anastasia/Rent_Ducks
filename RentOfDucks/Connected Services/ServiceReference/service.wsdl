@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOrder" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrder" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrder" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateDuck_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDuck" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateDuck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDuckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertOrderDuck_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOrderDuck" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertOrderDuck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOrderDuckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateOrderDuck_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderDuck" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateOrderDuck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderDuckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteOrderDuck_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderDuck" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteOrderDuck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderDuckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllDucks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDucks" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllDucks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDucksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDucksInStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDucksInStock" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDucksInStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDucksInStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDucksPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDucksPrice" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDucksPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDucksPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDucksLeased_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDucksLeased" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDucksLeased_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDucksLeasedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MaxOrderId_InputMessage">
+    <wsdl:part name="parameters" element="tns:MaxOrderId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MaxOrderId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MaxOrderIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetNumberDuck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberDuck" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetNumberDuck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberDuckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDateOrder" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDateOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertOrder" message="tns:IService1_InsertOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertOrderResponse" message="tns:IService1_InsertOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateOrder" message="tns:IService1_UpdateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateOrderResponse" message="tns:IService1_UpdateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteOrder" message="tns:IService1_DeleteOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteOrderResponse" message="tns:IService1_DeleteOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDuck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateDuck" message="tns:IService1_UpdateDuck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateDuckResponse" message="tns:IService1_UpdateDuck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrderDuck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertOrderDuck" message="tns:IService1_InsertOrderDuck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertOrderDuckResponse" message="tns:IService1_InsertOrderDuck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderDuck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateOrderDuck" message="tns:IService1_UpdateOrderDuck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateOrderDuckResponse" message="tns:IService1_UpdateOrderDuck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderDuck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteOrderDuck" message="tns:IService1_DeleteOrderDuck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteOrderDuckResponse" message="tns:IService1_DeleteOrderDuck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllOrders" message="tns:IService1_GetAllOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllOrdersResponse" message="tns:IService1_GetAllOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDucks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllDucks" message="tns:IService1_GetAllDucks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllDucksResponse" message="tns:IService1_GetAllDucks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDucksInStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDucksInStock" message="tns:IService1_GetDucksInStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDucksInStockResponse" message="tns:IService1_GetDucksInStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDucksPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDucksPrice" message="tns:IService1_GetDucksPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDucksPriceResponse" message="tns:IService1_GetDucksPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDucksLeased">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDucksLeased" message="tns:IService1_GetDucksLeased_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDucksLeasedResponse" message="tns:IService1_GetDucksLeased_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxOrderId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MaxOrderId" message="tns:IService1_MaxOrderId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MaxOrderIdResponse" message="tns:IService1_MaxOrderId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberDuck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetNumberDuck" message="tns:IService1_GetNumberDuck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNumberDuckResponse" message="tns:IService1_GetNumberDuck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDateOrder" message="tns:IService1_GetDateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDateOrderResponse" message="tns:IService1_GetDateOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrder">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDuck">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateDuck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrderDuck">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertOrderDuck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderDuck">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateOrderDuck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderDuck">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteOrderDuck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDucks">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllDucks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDucksInStock">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDucksInStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDucksPrice">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDucksPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDucksLeased">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDucksLeased" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxOrderId">
+      <soap:operation soapAction="http://tempuri.org/IService1/MaxOrderId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberDuck">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetNumberDuck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDateOrder">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfRentOfDucks/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
