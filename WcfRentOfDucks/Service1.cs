@@ -195,7 +195,7 @@ namespace WcfRentOfDucks
                 connect.Open();
 
                 result = (int)comm.ExecuteScalar();
-                
+
                 return result;
             }
             catch (Exception)
@@ -374,35 +374,7 @@ namespace WcfRentOfDucks
         {
             try
             {
-                comm.CommandText = "INSERT INTO OrderDuck VALUES(@number_duck, @id_order, @id_duck)";
-                comm.Parameters.AddWithValue("number_duck", od.number_duck);
-                comm.Parameters.AddWithValue("id_order", od.id_order);
-                comm.Parameters.AddWithValue("id_duck", od.id_duck);
-
-                comm.CommandType = CommandType.Text;
-                connect.Open();
-
-                return comm.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                if (connect != null)
-                {
-                    connect.Close();
-                }
-            }
-        }
-
-        public int UpdateOrderDuck(OrderDuck od)
-        {
-            try
-            {
-                comm.CommandText = "UPDATE OrderDuck SET number_duck=@number_duck WHERE id_order=@id_order AND id_duck=@id_duck";
-                comm.Parameters.AddWithValue("number_duck", od.number_duck);
+                comm.CommandText = "INSERT INTO OrderDuck VALUES(@id_order, @id_duck)";
                 comm.Parameters.AddWithValue("id_order", od.id_order);
                 comm.Parameters.AddWithValue("id_duck", od.id_duck);
 
@@ -428,8 +400,9 @@ namespace WcfRentOfDucks
         {
             try
             {
-                comm.CommandText = "DELETE FROM OrderDuck WHERE id_order=@id_order";
+                comm.CommandText = "DELETE FROM OrderDuck WHERE id_order=@id_order AND id_duck=@id_duck";
                 comm.Parameters.AddWithValue("id_order", od.id_order);
+                comm.Parameters.AddWithValue("id_duck", od.id_duck);
 
                 comm.CommandType = CommandType.Text;
                 connect.Open();

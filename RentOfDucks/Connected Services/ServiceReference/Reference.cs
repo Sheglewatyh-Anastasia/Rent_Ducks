@@ -342,9 +342,6 @@ namespace RentOfDucks.ServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int id_order_duckField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long number_duckField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -390,19 +387,6 @@ namespace RentOfDucks.ServiceReference {
                 if ((this.id_order_duckField.Equals(value) != true)) {
                     this.id_order_duckField = value;
                     this.RaisePropertyChanged("id_order_duck");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long number_duck {
-            get {
-                return this.number_duckField;
-            }
-            set {
-                if ((this.number_duckField.Equals(value) != true)) {
-                    this.number_duckField = value;
-                    this.RaisePropertyChanged("number_duck");
                 }
             }
         }
@@ -462,12 +446,6 @@ namespace RentOfDucks.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertOrderDuck", ReplyAction="http://tempuri.org/IService1/InsertOrderDuckResponse")]
         System.Threading.Tasks.Task<int> InsertOrderDuckAsync(RentOfDucks.ServiceReference.OrderDuck od);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateOrderDuck", ReplyAction="http://tempuri.org/IService1/UpdateOrderDuckResponse")]
-        int UpdateOrderDuck(RentOfDucks.ServiceReference.OrderDuck od);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateOrderDuck", ReplyAction="http://tempuri.org/IService1/UpdateOrderDuckResponse")]
-        System.Threading.Tasks.Task<int> UpdateOrderDuckAsync(RentOfDucks.ServiceReference.OrderDuck od);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteOrderDuck", ReplyAction="http://tempuri.org/IService1/DeleteOrderDuckResponse")]
         int DeleteOrderDuck(RentOfDucks.ServiceReference.OrderDuck od);
@@ -605,14 +583,6 @@ namespace RentOfDucks.ServiceReference {
         
         public System.Threading.Tasks.Task<int> InsertOrderDuckAsync(RentOfDucks.ServiceReference.OrderDuck od) {
             return base.Channel.InsertOrderDuckAsync(od);
-        }
-        
-        public int UpdateOrderDuck(RentOfDucks.ServiceReference.OrderDuck od) {
-            return base.Channel.UpdateOrderDuck(od);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateOrderDuckAsync(RentOfDucks.ServiceReference.OrderDuck od) {
-            return base.Channel.UpdateOrderDuckAsync(od);
         }
         
         public int DeleteOrderDuck(RentOfDucks.ServiceReference.OrderDuck od) {

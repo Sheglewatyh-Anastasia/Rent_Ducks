@@ -99,24 +99,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateOrderDuck">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="od" nillable="true" type="q8:OrderDuck" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateOrderDuckResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateOrderDuckResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="DeleteOrderDuck">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="od" nillable="true" type="q9:OrderDuck" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="od" nillable="true" type="q8:OrderDuck" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -135,7 +121,7 @@
   <xs:element name="GetAllOrdersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="GetAllOrdersResult" nillable="true" type="q10:ArrayOfOrders" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="GetAllOrdersResult" nillable="true" type="q9:ArrayOfOrders" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -147,14 +133,14 @@
   <xs:element name="GetAllDucksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="GetAllDucksResult" nillable="true" type="q11:ArrayOfDucks" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="GetAllDucksResult" nillable="true" type="q10:ArrayOfDucks" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDucksInStock">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="d" nillable="true" type="q12:Ducks" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="d" nillable="true" type="q11:Ducks" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -168,7 +154,7 @@
   <xs:element name="GetDucksPrice">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="d" nillable="true" type="q13:Ducks" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="d" nillable="true" type="q12:Ducks" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -182,7 +168,7 @@
   <xs:element name="GetDucksLeased">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="d" nillable="true" type="q14:Ducks" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="d" nillable="true" type="q13:Ducks" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -208,7 +194,7 @@
   <xs:element name="GetNumberDuck">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="o" nillable="true" type="q15:Orders" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="o" nillable="true" type="q14:Orders" />
         <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -223,7 +209,7 @@
   <xs:element name="GetDateOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="o" nillable="true" type="q16:Orders" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfRentOfDucks" minOccurs="0" name="o" nillable="true" type="q15:Orders" />
         <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

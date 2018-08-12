@@ -34,7 +34,6 @@
       <xs:element minOccurs="0" name="id_duck" type="xs:int" />
       <xs:element minOccurs="0" name="id_order" type="xs:int" />
       <xs:element minOccurs="0" name="id_order_duck" type="xs:int" />
-      <xs:element minOccurs="0" name="number_duck" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderDuck" nillable="true" type="tns:OrderDuck" />

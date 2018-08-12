@@ -33,9 +33,6 @@ namespace WcfRentOfDucks
         int InsertOrderDuck(OrderDuck od);
 
         [OperationContract]
-        int UpdateOrderDuck(OrderDuck od);
-
-        [OperationContract]
         int DeleteOrderDuck(OrderDuck od);
 
         [OperationContract]

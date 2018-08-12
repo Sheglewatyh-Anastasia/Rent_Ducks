@@ -16,18 +16,20 @@ namespace RentOfDucks
         public OrderForm()
         {
             InitializeComponent();
+            sp = new SupportOperations();
         }
+        SupportOperations sp;
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            if (Price() > 0)
+            if (sp.Price(dTP_DateExpiration.Value, dTP_DateBeginning.Value, numUpDown_Red.Value, numUpDown_Green.Value, numUpDown_Black.Value, lbl_PriceRed.Text, lbl_PriceGreen.Text, lbl_PriceBlack.Text) > 0)
             {
                 Service1Client service = new Service1Client();
 
                 Orders o = new Orders();
                 o.date_beginning = dTP_DateBeginning.Value;
                 o.date_expiration = dTP_DateExpiration.Value;
-                o.price = Price();
+                o.price = sp.Price(dTP_DateExpiration.Value, dTP_DateBeginning.Value, numUpDown_Red.Value, numUpDown_Green.Value, numUpDown_Black.Value, lbl_PriceRed.Text, lbl_PriceGreen.Text, lbl_PriceBlack.Text);
                 o.number_red_duck = Convert.ToInt64(numUpDown_Red.Value);
                 o.number_green_duck = Convert.ToInt64(numUpDown_Green.Value);
                 o.number_black_duck = Convert.ToInt64(numUpDown_Black.Value);
@@ -41,7 +43,7 @@ namespace RentOfDucks
                     Ducks d_red = new Ducks();
                     d_red.id_duck = 1;
                     d_red.number_in_stock = Convert.ToInt64(lbl_InStockRed.Text) - Convert.ToInt64(numUpDown_Red.Value);
-                    long duck_leased = DucksLeased(1);
+                    long duck_leased = sp.DucksLeased(1);
                     d_red.number_leased = duck_leased + Convert.ToInt64(numUpDown_Red.Value);
                     service.UpdateDuck(d_red);
                     d_red_ok = true;
@@ -52,7 +54,7 @@ namespace RentOfDucks
                     Ducks d_green = new Ducks();
                     d_green.id_duck = 2;
                     d_green.number_in_stock = Convert.ToInt64(lbl_InStockGreen.Text) - Convert.ToInt64(numUpDown_Green.Value);
-                    long duck_leased = DucksLeased(2);
+                    long duck_leased = sp.DucksLeased(2);
                     d_green.number_leased = duck_leased + Convert.ToInt64(numUpDown_Green.Value);
                     service.UpdateDuck(d_green);
                     d_green_ok = true;
@@ -63,7 +65,7 @@ namespace RentOfDucks
                     Ducks d_black = new Ducks();
                     d_black.id_duck = 3;
                     d_black.number_in_stock = Convert.ToInt64(lbl_InStockBlack.Text) - Convert.ToInt64(numUpDown_Black.Value);
-                    long duck_leased = DucksLeased(2);
+                    long duck_leased = sp.DucksLeased(3);
                     d_black.number_leased = duck_leased + Convert.ToInt64(numUpDown_Black.Value);
                     service.UpdateDuck(d_black);
                     d_black_ok = true;
@@ -75,7 +77,6 @@ namespace RentOfDucks
 
                     if (d_red_ok)
                     {
-                        od.number_duck = Convert.ToInt64(numUpDown_Red.Value);
                         od.id_order = service.MaxOrderId();
                         od.id_duck = 1;
 
@@ -84,7 +85,6 @@ namespace RentOfDucks
 
                     if (d_green_ok)
                     {
-                        od.number_duck = Convert.ToInt64(numUpDown_Green.Value);
                         od.id_order = service.MaxOrderId();
                         od.id_duck = 2;
 
@@ -93,7 +93,6 @@ namespace RentOfDucks
 
                     if (d_black_ok)
                     {
-                        od.number_duck = Convert.ToInt64(numUpDown_Black.Value);
                         od.id_order = service.MaxOrderId();
                         od.id_duck = 3;
 
@@ -152,17 +151,7 @@ namespace RentOfDucks
                 numUpDown_Black.Value = 0;
             }                
         }
-
-        private long DucksLeased(int i)
-        {
-            Ducks d = new Ducks()
-            {
-                id_duck = i
-            };
-
-            Service1Client service = new Service1Client();
-            return service.GetDucksLeased(d);
-        }
+        
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
@@ -197,46 +186,14 @@ namespace RentOfDucks
             numUpDown_Red.Maximum = Convert.ToDecimal(lbl_InStockRed.Text);
             numUpDown_Green.Maximum = Convert.ToDecimal(lbl_InStockGreen.Text);
             numUpDown_Black.Maximum = Convert.ToDecimal(lbl_InStockBlack.Text);
-        }
-
-        private decimal Price()
-        {
-            int count_day = Count_Days();
-
-            decimal price = (numUpDown_Red.Value * Convert.ToInt64(lbl_PriceRed.Text) + numUpDown_Green.Value * Convert.ToInt64(lbl_PriceGreen.Text) + numUpDown_Black.Value * Convert.ToInt64(lbl_PriceBlack.Text)) * count_day;
-
-            double disc = 0.85;
-
-            if(Discount())
-                price = price * Convert.ToDecimal(disc);
-
-            return price;
-        }
-
-        private int Count_Days()
-        {
-            TimeSpan ts = dTP_DateExpiration.Value - dTP_DateBeginning.Value;
-
-            return ts.Days;
-        }
-
-        private bool Discount()
-        {
-            bool flag = false;
-            if (numUpDown_Red.Value >= 3 || numUpDown_Green.Value >= 3 || numUpDown_Black.Value >= 3)
-            {
-                flag = true;
-            }
-
-            return flag;
-        }
+        }        
 
         private void btn_UpdatePreliminary_Click(object sender, EventArgs e)
         {
             decimal n = numUpDown_Red.Value + numUpDown_Green.Value + numUpDown_Black.Value;
             lbl_Number_All_Duck_Value.Text = n.ToString();
-            lbl_All_Days_Value.Text = Count_Days().ToString();
-            lbl_Price_Result_Value.Text = Price().ToString();
+            lbl_All_Days_Value.Text = sp.Count_Days(dTP_DateExpiration.Value, dTP_DateBeginning.Value).ToString();
+            lbl_Price_Result_Value.Text = sp.Price(dTP_DateExpiration.Value, dTP_DateBeginning.Value, numUpDown_Red.Value, numUpDown_Green.Value, numUpDown_Black.Value, lbl_PriceRed.Text, lbl_PriceGreen.Text, lbl_PriceBlack.Text).ToString();
         }
 
         private void cBx_Green_CheckedChanged(object sender, EventArgs e)
@@ -257,32 +214,17 @@ namespace RentOfDucks
 
         private void ClearForm()
         {
-            cBx_Red.Checked = false;
-            cBx_Green.Checked = false;
-            cBx_Black.Checked = false;
+            cBx_Red.Checked = cBx_Green.Checked = cBx_Black.Checked = 
+            numUpDown_Red.Enabled = numUpDown_Green.Enabled = numUpDown_Black.Enabled = false;
 
-            numUpDown_Red.Enabled = false;
-            numUpDown_Green.Enabled = false;
-            numUpDown_Black.Enabled = false;
+            numUpDown_Red.Value = numUpDown_Green.Value = numUpDown_Black.Value = 0;
 
-            numUpDown_Red.Value = 0;
-            numUpDown_Green.Value = 0;
-            numUpDown_Black.Value = 0;
-
-            lbl_PriceRed.Text = "-";
-            lbl_PriceGreen.Text = "-";
-            lbl_PriceBlack.Text = "-";
-
-            lbl_InStockRed.Text = "-";
-            lbl_InStockGreen.Text = "-";
-            lbl_InStockBlack.Text = "-";
+            lbl_PriceRed.Text = lbl_PriceGreen.Text = lbl_PriceBlack.Text = 
+            lbl_InStockRed.Text = lbl_InStockGreen.Text = lbl_InStockBlack.Text = 
+            lbl_Number_All_Duck_Value.Text = lbl_All_Days_Value.Text = lbl_Price_Result_Value.Text = "-";
 
             dTP_DateBeginning.MinDate = DateTime.Today.AddDays(1);
             dTP_DateExpiration.MinDate = DateTime.Today.AddDays(2);
-
-            lbl_Number_All_Duck_Value.Text = "-";
-            lbl_All_Days_Value.Text = "-";
-            lbl_Price_Result_Value.Text = "-";
         }
     }
 }

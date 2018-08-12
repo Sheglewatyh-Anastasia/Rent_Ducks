@@ -13,8 +13,6 @@ namespace WcfRentOfDucks
         [DataMember]
         public int id_order_duck { get; set; }
         [DataMember]
-        public long number_duck { get; set; }
-        [DataMember]
         public int id_order { get; set; }
         [DataMember]
         public int id_duck { get; set; }
